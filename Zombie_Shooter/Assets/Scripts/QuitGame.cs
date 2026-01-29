@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ExitGame : MonoBehaviour
+public class QuitGame : MonoBehaviour
 {
-    public void QuitGame()
+    public void ExitGame()
     {
 #if UNITY_EDITOR
         // Stoppt den Playmode im Unity Editor
@@ -12,7 +12,7 @@ public class ExitGame : MonoBehaviour
         (EXE, APK, etc.)
         Application.Quit();
 #endif
-        Debug.Log("Exit Game button clicked!");
+        Debug.Log("Quit Game button clicked!");
 
         // Funktioniert im Editor nicht sichtbar, nur im Build
         Application.Quit();

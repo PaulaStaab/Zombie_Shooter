@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c8fa151ad74ec489359bbea09d6fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayButton: {fileID: 0}
+  PlayButton: {fileID: 1588660439}
 --- !u!4 &1058376962
 Transform:
   m_ObjectHideFlags: 0

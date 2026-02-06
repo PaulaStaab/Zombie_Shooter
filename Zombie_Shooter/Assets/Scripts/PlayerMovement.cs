@@ -1,25 +1,34 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 2f;
-    private Rigidbody2D rb;
+    public float speed = 5f;
     private Animator animator;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");  // A/D
-        float v = Input.GetAxisRaw("Vertical");    // W/S
-        float moveSpeed = Mathf.Abs(h) + Mathf.Abs(v);
+        // GetAxisRaw = SOFORT 0, wenn Taste losgelassen!
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Speed", moveSpeed);    // Animator steuern
+        // Genau 0 ohne Taste, >0 mit Taste
+        float moveAmount = Mathf.Abs(h) + Mathf.Abs(v);
 
-        rb.linearVelocity = new Vector2(h * speed, v * speed);
+        // Animator sofort updaten
+        animator.SetFloat("Speed", moveAmount);
+
+        // Umdrehen bei Horizontal-Bewegung (A/D)
+        if (h != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(h), 1f, 1f);
+        }
+
+        // Bewegen nur bei Input
+        transform.Translate(new Vector2(h, v) * speed * Time.deltaTime);
     }
 }

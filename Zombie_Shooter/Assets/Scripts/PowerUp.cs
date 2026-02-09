@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
     public ParticleSystem collectEffect;  // Partikel reinziehen!
-    public int healAmount = 25;
+    public int healAmount = 100;
 
     void Update()
     {
@@ -17,22 +18,11 @@ public class PowerUp : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.AddHealth(healAmount);
+                playerHealth.AddHealth(healAmount); // Nur EINMAL aufrufen
             }
 
-            if (playerHealth != null)
-            {
-                Debug.Log("PowerUp gefunden!");  //s Test
-                playerHealth.AddHealth(healAmount);
-            }
-
-            // Partikel-Explosion bei Collect!
-            if (collectEffect != null)
-            {
-                collectEffect.Play();  // Start!
-            }
-
-            Destroy(gameObject, 0.3f);  // Kurz warten für Effekt
+            if (collectEffect != null) collectEffect.Play();
+            Destroy(gameObject, 0.3f);
         }
     }
 }

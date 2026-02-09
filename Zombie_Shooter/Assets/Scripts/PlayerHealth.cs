@@ -3,28 +3,23 @@
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;  // ← PUBLIC war das Problem!
+    public int currentHealth; 
 
     void Start()
     {
-        currentHealth = maxHealth;  // Voll-Health Start
+        currentHealth = 0;  
     }
 
     public void AddHealth(int amount)
     {
-        Debug.Log("★ AddHealth aufgerufen: +" + amount);  // ← Sichtbar!
-
-        currentHealth += amount;  // Jetzt wirkt's!
+        currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
 
-        Debug.Log("★ Neue Health: " + currentHealth + "/" + maxHealth);
-
-        // HealthBar updaten
         HealthBarController bar = GetComponent<HealthBarController>();
         if (bar != null)
         {
-            Debug.Log("★ HealthBar gefunden!");
-            bar.UpdateHealthBar(currentHealth);
+            // Hier schicken wir jetzt current UND maxHealth
+            bar.UpdateHealthBar(currentHealth, maxHealth);
         }
     }
 }

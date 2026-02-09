@@ -3,24 +3,26 @@ using UnityEngine.UI;
 
 public class HealthBarController : MonoBehaviour
 {
-    public Slider healthSlider; 
+    public Slider healthSlider;
     private PlayerHealth playerHealth;
 
     void Start()
     {
-        // Automatisch am selben GameObject finden!
         playerHealth = GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            healthSlider.maxValue = playerHealth.maxHealth;
-            healthSlider.value = playerHealth.currentHealth;
+            // Initialisierung mit beiden Werten
+            UpdateHealthBar(playerHealth.currentHealth, playerHealth.maxHealth);
         }
     }
 
-    // PlayerHealth.cs ruft das auf
-    public void UpdateHealthBar(int currentHealth)
+    // Jetzt mit zwei Parametern!
+    public void UpdateHealthBar(int current, int max)
     {
         if (healthSlider != null)
-            healthSlider.value = currentHealth;
+        {
+            healthSlider.maxValue = max; // Zwingt den Slider auf das richtige Maximum
+            healthSlider.value = current;
+        }
     }
 }

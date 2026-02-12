@@ -5,13 +5,20 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 2f;
     public float direction = 1f;  // 1 = rechts, -1 = links
 
-    void Update()
+    private Rigidbody2D rb;
+
+    void Start()
     {
-        // Automatisch horizontal bewegen
-        transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Bei Wandumkehr (BoxCollider2D mit Trigger)
+    void FixedUpdate()
+    {
+        // Bewegung mit Physics
+        rb.linearVelocity = new Vector2(direction * speed, 0f);
+    }
+
+    // Umdrehen bei Wand-Kollision
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Wall")

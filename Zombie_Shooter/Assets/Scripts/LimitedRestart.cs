@@ -2,21 +2,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameScene6 : MonoBehaviour
+public class LimitedRestart : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
-    public Button PlayButton;
+    public Button Restart;
 
     void Start()
     {
         // Listener für die Buttons setzen
-        if (PlayButton != null)
-            PlayButton.onClick.AddListener(NewGame);
+        if (Restart != null)
+            Restart.onClick.AddListener(NewGame);
     }
 
     // "New Game" / Restart: Einfach die Game-Scene laden
     public void NewGame()
     {
-        SceneManager.LoadScene("GameScene");  // Laden der Game-Szene
+        SceneManager.LoadScene("LimitedMode");  // Laden der Game-Szene
     }
 }

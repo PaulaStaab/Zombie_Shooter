@@ -1,10 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PowerUp_Shield : MonoBehaviour
 {
-    public ParticleSystem collectEffect;  // Partikel reinziehen!
-    public int healAmount = 100;
+    public ParticleSystem collectEffect;
+    public float shieldDuration = 2f;
+
+    [Header("Shield Visual")]
+    public GameObject shieldVisualPrefab;  // Schild-Prefab hier reinziehen!
 
     void Update()
     {
@@ -13,16 +15,16 @@ public class PowerUp_Shield : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.AddHealth(healAmount); // Nur EINMAL aufrufen
-            }
+        if (!other.CompareTag("Player")) return;
 
-            if (collectEffect != null) collectEffect.Play();
-            Destroy(gameObject, 0.3f);
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            // Schild aktivieren + Prefab übergeben
+            playerHealth.ActivateShield(shieldDuration, shieldVisualPrefab);
         }
+
+        if (collectEffect != null) collectEffect.Play();
+        Destroy(gameObject, 0.3f);
     }
 }

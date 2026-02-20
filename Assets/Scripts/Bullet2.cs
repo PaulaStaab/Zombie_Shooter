@@ -6,10 +6,7 @@ public class Bullet2 : MonoBehaviour
 
         void OnTriggerEnter2D(Collider2D other) // Wir nennen es "other"
         {
-            // 1. FEHLER BEHOBEN: Hier nutzen wir jetzt auch "other" statt "collision"
-            Debug.Log("Getroffen: " + other.gameObject.name + " | Tag: " + other.tag);
-
-            // 2. LOGIK VERBESSERT: Statt "targetEnemy" prüfen wir, ob es EIN Enemy ist
+            // 1. LOGIK VERBESSERT: Statt "targetEnemy" prüfen wir, ob es EIN Enemy ist
             if (other.CompareTag("Enemy"))
             {
                 EnemyHealth1 enemy = other.GetComponent<EnemyHealth1>();

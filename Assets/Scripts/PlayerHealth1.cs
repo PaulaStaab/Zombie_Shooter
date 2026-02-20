@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth1 : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -31,7 +31,12 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Player took damage: " + damage + " | Health: " + currentHealth);
         // UpdateHealthBar() + Death-Check hier
+        // HealthBar updaten
+        HealthBarController bar = GetComponent<HealthBarController>();
+        if (bar != null)
+            bar.UpdateHealthBar(currentHealth);
     }
+
 
     public void ActivateShield(float duration, GameObject shieldPrefab)
     {

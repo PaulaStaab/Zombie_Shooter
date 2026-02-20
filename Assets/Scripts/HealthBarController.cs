@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,5 +25,10 @@ public class HealthBarController : MonoBehaviour
             healthSlider.maxValue = max; // Zwingt den Slider auf das richtige Maximum
             healthSlider.value = current;
         }
+    }
+
+    internal void UpdateHealthBar(int currentHealth)
+    {
+        throw new NotImplementedException();
     }
 }

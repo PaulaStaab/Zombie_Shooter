@@ -19,6 +19,7 @@ public class PowerUp : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.AddHealth(healAmount); // Nur EINMAL aufrufen
+                Debug.Log(healAmount);
             }
 
             if (collectEffect != null) collectEffect.Play();

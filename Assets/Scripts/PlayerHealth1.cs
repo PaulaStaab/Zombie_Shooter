@@ -32,9 +32,12 @@ public class PlayerHealth1 : MonoBehaviour
         Debug.Log("Player took damage: " + damage + " | Health: " + currentHealth);
         // UpdateHealthBar() + Death-Check hier
         // HealthBar updaten
+        // HealthBarController aufrufen
         HealthBarController bar = GetComponent<HealthBarController>();
         if (bar != null)
-            bar.UpdateHealthBar(currentHealth);
+        {
+            bar.UpdateHealthBar(currentHealth); 
+        }
     }
 
 

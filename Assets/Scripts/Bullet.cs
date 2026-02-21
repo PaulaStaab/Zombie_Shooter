@@ -3,7 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public GameObject targetEnemy;  // ← ENEMY REINZIEHEN!
-    public float damage = 10f;
+    public float damage = 50f;
 
     void OnTriggerEnter2D(Collider2D other)
     {

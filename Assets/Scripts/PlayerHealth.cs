@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -62,5 +63,10 @@ public class PlayerHealth : MonoBehaviour
         }
 
         shieldRoutine = null;
+    }
+
+    internal void TakeDamage(float v)
+    {
+        throw new NotImplementedException();
     }
 }

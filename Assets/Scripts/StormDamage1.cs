@@ -31,11 +31,8 @@ public class StormDamage1 : MonoBehaviour
             Debug.Log("Player ist AUSSERHALB der SafeZone, StormDamage!");
 
             // 3. Schaden pro Sekunde
-        }
+            
 
-        void Update()
-        {
-            Bounds b = safeZone.bounds;
 
             // Player ist im STURM, wenn er NICHT in der SafeZone ist
             bool playerImSturm = !b.Contains(player.position);

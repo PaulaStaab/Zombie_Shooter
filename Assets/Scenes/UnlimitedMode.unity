@@ -1792,6 +1792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectEffect: {fileID: 1022849530}
   healAmount: 100
+  playerHealthSlider: {fileID: 918162949}
 --- !u!61 &927040749
 BoxCollider2D:
   m_ObjectHideFlags: 0

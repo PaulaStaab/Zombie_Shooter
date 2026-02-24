@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class GameScene2 : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
-    public Button Unlimited;
+    public Button PlayButton;
 
     void Start()
     {
         // Listener für die Buttons setzen
-        if (Unlimited != null)
-            Unlimited.onClick.AddListener(NewGame);
+        if (PlayButton != null)
+            PlayButton.onClick.AddListener(NewGame);
     }
 
     // "New Game" / Restart: Einfach die Game-Scene laden

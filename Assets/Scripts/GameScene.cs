@@ -17,6 +17,6 @@ public class GameScene : MonoBehaviour
     // "New Game" / Restart: Einfach die Game-Scene laden
     public void NameScreen()
     {
-        SceneManager.LoadScene("New Scene"); 
+        SceneManager.LoadScene("ChooseName"); 
     }
 }

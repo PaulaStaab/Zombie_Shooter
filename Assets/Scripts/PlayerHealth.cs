@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -31,7 +32,16 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;
 
         Debug.Log("Player took damage: " + damage + " | Health: " + currentHealth);
-        // UpdateHealthBar() + Death-Check hier
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+        void Die()
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void ActivateShield(float duration, GameObject shieldPrefab)

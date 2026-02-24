@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ModeChange.unity
     guid: ba5423ff733aaa047b6d5b99cfca3c3e
   - enabled: 1
-    path: Assets/Scenes/New Scene.unity
+    path: Assets/Scenes/ChooseName.unity
     guid: e9724c68b3ab13b4aa53b57223bf53b6
   - enabled: 1
     path: Assets/Scenes/UnlimitedMode.unity
@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseMenuScene.unity
     guid: 5000f8c09aab8c842bc9d043efc8be0a
+  - enabled: 1
+    path: Assets/Scenes/Gameover.unity
+    guid: f32e543cdb5316d469a49431a6693393
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

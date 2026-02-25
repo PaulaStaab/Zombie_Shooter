@@ -15,10 +15,6 @@ public class GameModeManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject gameOverPanel; // Panel das beim Game Over erscheint
 
-    [Header("Spawning Settings")]
-    public float unlimitedSpawnRate = 5f; // Gegner alle 5 Sekunden
-    public float limitedSpawnRate = 3f;   // Gegner alle 3 Sekunden (schneller!)
-
     [Header("PowerUp Settings")]
     public float maxTime = 600f; // Maximale Zeit (10 Minuten Cap)
 

@@ -11,11 +11,6 @@ public class PowerUp_Timer : MonoBehaviour
 
     private GameModeManager gameModeManager;
 
-    void Start()
-    {
-        gameModeManager = FindObjectOfType<GameModeManager>();
-    }
-
     void Update()
     {
         // Rotation für Attraktivität

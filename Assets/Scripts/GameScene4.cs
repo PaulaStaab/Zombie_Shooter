@@ -5,18 +5,16 @@ using UnityEngine.UI;
 public class GameScene4 : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
-    public Button PlayButton;
-
+    public Button MovetoLimited;
     void Start()
     {
         // Listener für die Buttons setzen
-        if (PlayButton != null)
-            PlayButton.onClick.AddListener(NewGame);
+        if (MovetoLimited != null)
+            MovetoLimited.onClick.AddListener(NewGame);
     }
 
-    // "New Game" / Restart: Einfach die Game-Scene laden
     public void NewGame()
     {
-        SceneManager.LoadScene("GameScene");  // Laden der Game-Szene
+        SceneManager.LoadScene("Limited"); 
     }
 }

@@ -11,6 +11,16 @@ public class PowerUp_Timer : MonoBehaviour
 
     private GameModeManager gameModeManager;
 
+    [System.Obsolete]
+    void Start()
+    {
+        gameModeManager = FindObjectOfType<GameModeManager>();
+        if (gameModeManager == null)
+        {
+            Debug.LogWarning("GameModeManager nicht gefunden! PowerUp funktioniert nicht.");
+        }
+    }
+
     void Update()
     {
         // Rotation für Attraktivität

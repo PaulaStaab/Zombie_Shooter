@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = 0;
+        currentHealth = 100;
     }
 
     public void AddHealth(int amount)

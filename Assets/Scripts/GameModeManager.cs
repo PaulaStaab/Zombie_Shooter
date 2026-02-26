@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class GameModeManager : MonoBehaviour
 {
     public enum GameMode { Unlimited, Limited }
-    public GameMode currentMode = GameMode.Unlimited;
+    public GameMode currentMode = GameMode.Limited;
 
-    [Header("Timer Settings (nur Limited Mode)")]
+    [Header("Timer Settings (nur Limited)")]
     public float gameDuration = 300f; // 5 Minuten = 300 Sekunden
     private float currentTime;
 
@@ -16,7 +16,7 @@ public class GameModeManager : MonoBehaviour
     public GameObject gameOverPanel; // Panel das beim Game Over erscheint
 
     [Header("PowerUp Settings")]
-    public float maxTime = 600f; // Maximale Zeit (10 Minuten Cap)
+    public float maxTime = 600f; 
 
     private bool gameActive = false;
 
@@ -92,12 +92,6 @@ public class GameModeManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    // Gibt die aktuelle Spawn-Rate zurück (für Enemy-Spawner)
-    public float GetCurrentSpawnRate()
-    {
-        return currentMode == GameMode.Limited ? limitedSpawnRate : unlimitedSpawnRate;
     }
 
     public bool IsGameActive()

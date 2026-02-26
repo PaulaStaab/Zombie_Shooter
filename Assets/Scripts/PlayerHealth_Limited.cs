@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerHealth1 : MonoBehaviour
+public class PlayerHealth_Limited : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 200;
     public int currentHealth;
 
     private bool isInvulnerable;
@@ -12,7 +12,7 @@ public class PlayerHealth1 : MonoBehaviour
 
     void Start()
     {
-        currentHealth = 0;
+        currentHealth = 100;
     }
 
     public void AddHealth(int amount)

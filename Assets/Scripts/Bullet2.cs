@@ -2,7 +2,7 @@
 
 public class Bullet2 : MonoBehaviour
     {
-        public float damage = 10f;
+        public float damage = 50f;
 
         void OnTriggerEnter2D(Collider2D other) // Wir nennen es "other"
         {

@@ -2,7 +2,7 @@
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int damageAmount = 10;
+    public int damageAmount = 1000;
 
     void OnCollisionEnter2D(Collision2D collision)
     {

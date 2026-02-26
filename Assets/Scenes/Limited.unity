@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 161856093}
   - component: {fileID: 161856092}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef593fe9bc8e39e459c0c9fa6b25d73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToAdd: 30
+  timeToAdd: 60
   collectParticles: {fileID: 1279996755}
   collectSound: {fileID: 0}
 --- !u!61 &243446023
@@ -1316,7 +1316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 312553364}
   - component: {fileID: 312553365}
-  - component: {fileID: 312553366}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1352,21 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseSceneName: PauseMenuScene
---- !u!114 &312553366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312553362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b0db7f3e78ecb44bb6b918679c140b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 501341730}
-  safeZone: {fileID: 1673259511}
-  damagePerSecond: 10
 --- !u!1 &330281345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f42e679fa3054499bf05610168110b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!50 &501341733
 Rigidbody2D:
   serializedVersion: 5
@@ -1969,7 +1953,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 501341727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fb7d6b1ad255a41834eed976d65f28, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd511db1aa3ac34382715c6325104ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
@@ -2323,6 +2307,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593270708}
   m_CullTransparentMesh: 1
+--- !u!1 &602662639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602662641}
+  - component: {fileID: 602662640}
+  m_Layer: 0
+  m_Name: ContinueGameOverScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &602662640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602662639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab28167ab905bad4c917f2401dab8caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContinueButton: {fileID: 758700187}
+--- !u!4 &602662641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602662639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.456497, y: 0.14589319, z: -0.33998686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656446435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2592,7 @@ GameObject:
   - component: {fileID: 758700188}
   - component: {fileID: 758700187}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2633,9 +2662,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LimitedRestart, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 602662640}
+        m_TargetAssemblyTypeName: GameOverScreen, Assembly-CSharp
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2889,7 +2918,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 95109748}
   bulletSpeed: 3
   shootPoint: {fileID: 1377042594}
-  damage: 10
+  damage: 50
   enemyLayer:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3078,8 +3107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -889666295
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -3886345949671643513, guid: bea11a3d66b4c244a83138b1cfd08eca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13491,7 +13520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377042594}
   m_Layer: 0
-  m_Name: firespawn
+  m_Name: bulletspawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68065,3 +68094,4 @@ SceneRoots:
   - {fileID: 2081435592}
   - {fileID: 126852851}
   - {fileID: 555924316}
+  - {fileID: 602662641}

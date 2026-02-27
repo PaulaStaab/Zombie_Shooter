@@ -24,6 +24,8 @@ public class Bullet2 : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ModeScript : MonoBehaviour
 {
-    public void NewGame()
+    public void Mode()
     {
         SceneManager.LoadScene("ModeChange");  
     }

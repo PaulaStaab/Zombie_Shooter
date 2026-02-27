@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameScene1 : MonoBehaviour
+public class ChooseName : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
     public Button LimitedButton;

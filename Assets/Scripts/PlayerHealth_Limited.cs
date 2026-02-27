@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth_Limited : MonoBehaviour
 {
-    public int maxHealth = 200;
+    public int maxHealth = 100;
     public int currentHealth;
 
     private bool isInvulnerable;
@@ -12,7 +14,7 @@ public class PlayerHealth_Limited : MonoBehaviour
 
     void Start()
     {
-        currentHealth = 100;
+        currentHealth = 0;
     }
 
     public void AddHealth(int amount)
@@ -30,16 +32,17 @@ public class PlayerHealth_Limited : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;
 
         Debug.Log("Player took damage: " + damage + " | Health: " + currentHealth);
-        // UpdateHealthBar() + Death-Check hier
-        // HealthBar updaten
-        // HealthBarController aufrufen
-        HealthBarController bar = GetComponent<HealthBarController>();
-        if (bar != null)
+
+        if (currentHealth <= 0)
         {
-            bar.UpdateHealthBar(currentHealth); 
+            Die();
+        }
+
+        void Die()
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
-
 
     public void ActivateShield(float duration, GameObject shieldPrefab)
     {
@@ -70,5 +73,10 @@ public class PlayerHealth_Limited : MonoBehaviour
         }
 
         shieldRoutine = null;
+    }
+
+    internal void TakeDamage(float v)
+    {
+        throw new NotImplementedException();
     }
 }

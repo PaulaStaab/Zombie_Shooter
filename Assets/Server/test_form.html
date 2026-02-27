@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form id="scoreForm">
+  Name: <input type="text" name="player_name" value="HTMLTest">
+  Kills: <input type="number" name="kills" value="10">
+  <button type="submit">Submit</button>
+</form>
+<div id="result"></div>
+
+<script>
+document.getElementById('scoreForm').onsubmit = function(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  fetch('submit_score.php', {method: 'POST', body: formData})
+  .then(r=>r.json()).then(data => {
+    document.getElementById('result').innerHTML = JSON.stringify(data);
+    location.reload(); // Highscores neu laden
+  });
+}
+</script>
+</body>
+</html>

@@ -11,11 +11,11 @@ public class ExitPlayScene : MonoBehaviour
     {
         // Listener für die Buttons setzen
         if (LobbyButton != null)
-            LobbyButton.onClick.AddListener(NewGame);
+            LobbyButton.onClick.AddListener(Lobby);
     }
 
     // "New Game" / Restart: Einfach die Game-Scene laden
-    public void NewGame()
+    public void Lobby()
     {
         SceneManager.LoadScene("StartScreen");  // Laden der Game-Szene
     }

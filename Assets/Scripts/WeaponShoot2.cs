@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponShoot2 : MonoBehaviour
 {
@@ -7,15 +7,31 @@ public class WeaponShoot2 : MonoBehaviour
     public Transform shootPoint;
     public float damage = 10f;
     public LayerMask enemyLayer = -1;  // Enemy Layer
+    public AudioClip shootSound;       // SHOOT SOUND hier reinziehen!
+    private AudioSource audioSource;   // Auto-Sound-Player
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();  // AudioSource holen
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ShootRaycast();
-            SpawnBulletVisual();  // Visuelle Bullet spawnen
+            SpawnBulletVisual();
+
+            if (audioSource == null) Debug.LogError("❌ AudioSource fehlt!");
+            else if (shootSound == null) Debug.LogError("❌ Shoot Sound Clip fehlt!");
+            else
+            {
+                audioSource.PlayOneShot(shootSound, 0.7f);
+                Debug.Log("✓ Sound gespielt!");
+            }
         }
     }
+
 
     void ShootRaycast()
     {
@@ -40,7 +56,7 @@ public class WeaponShoot2 : MonoBehaviour
 
     void SpawnBulletVisual()
     {
-        // Bullet-Prefab spawnen f�r visuellen Effekt
+        // Bullet-Prefab spawnen für visuellen Effekt
         if (bulletPrefab != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
@@ -52,7 +68,7 @@ public class WeaponShoot2 : MonoBehaviour
                 rb.linearVelocity = direction * bulletSpeed;
             }
 
-            Destroy(bullet, 5f);  // Bullet nach 2 Sekunden zerst�ren
+            Destroy(bullet, 5f);  // Bullet nach 2 Sekunden zerstören
         }
     }
 }

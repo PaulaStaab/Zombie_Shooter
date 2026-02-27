@@ -6,7 +6,7 @@ using System;
 
 public class ScoreManager : MonoBehaviour
 {
-    private string apiUrl = "http://localhost/zombieshooter_api/";  
+    private string apiUrl = "http://localhost/zombieshooter_api/";
 
     public void SubmitZombieKills(string playerName, int kills)
     {

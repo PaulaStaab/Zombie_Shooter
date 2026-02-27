@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameScene4 : MonoBehaviour
+public class Limited : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
     public Button MovetoLimited;

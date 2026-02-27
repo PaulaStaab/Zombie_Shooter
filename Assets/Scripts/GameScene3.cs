@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameScene3 : MonoBehaviour
+public class Unlimited : MonoBehaviour
 {
     [Header("Buttons (Drag hier rein)")]
     public Button NewGameButton;
